@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: white;
+
+        }
+
+
+        .inner-wrap {
+            background-color: gainsboro;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            padding-left: 40px;
+        }
+
+        .flag-img {
+            width: 24px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .text p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 15px;
+        }
+
+
+        .right-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-right: 0;
+        }
+
+
+        .language-bar,
+        .login-bar {
+            display: flex;
+            gap: 19px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            border: none;
+            outline: none;
+
+        }
+
+        .language-bar {
+            font-size: 14px;
+        }
+
+
+        .header-bottom {
+            background-color: #f5f5f5;
+
+        }
+
+
+
+
+        .main-menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: flex-start;
+            gap: 40px;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        .menu-item:hover .sub-menu {
+            display: block;
+        }
+
+
+        .menu-item>label {
+            display: block;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            width: 300px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+
+        .sub-menu li {
+            margin-bottom: 10px;
+        }
+
+        .sub-menu li a {
+            font-weight: bold;
+            color: #005BAC;
+            text-decoration: none;
+        }
+
+        .sub-menu p {
+            margin: 5px 0 15px 0;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .menu-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .menu-item input[type="checkbox"]:checked~.sub-menu {
+            display: block;
+        }
+
+        .main.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            width: 1200px;
+
+            margin: 0 auto;
+            padding: 4opx 20px;
+
+        }
+
+
+
+
+
+        .main-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .frequent-search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .gov-search-box {
+            flex: 1;
+            padding: 10px 16px;
+            font-size: 16px;
+            border: 1px solid rgb(49, 96, 184);
+            border-radius: 6px;
+            padding-right: 100px;
+        }
+
+        .frequent-label {
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 5px;
+        }
+
+
+        .main-right {
+            width: 320px;
+            background-color: white;
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .login-top-image img {
+            width: 60px;
+            height: auto;
+            margin-bottom: 16px;
+        }
+
+        .문장 .login-text {
+            font-size: 16px;
+            color: #222;
+            margin-bottom: 16px;
+        }
+
+        .login-button {
+            width: 150%;
+            background-color: #2979ff;
+            color: white;
+            text-align: center;
+            padding: 12px 0;
+            margin: 16px 0;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .register-menu {
+            display: flex;
+            justify-content: space-between;
+            width: 120%;
+            padding: 0;
+            list-style: none;
+            margin: 0;
+            gap: 10px;
+        }
+
+        .register-menu li {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu-link {
+            text-decoration: none;
+            color: #3333cc;
+            font-size: 14px;
+        }
+
+
+        .frequent-services {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .services-row {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .service-card {
+            flex: 0 0 140px;
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            transition: transform 0.2s;
+            min-width: 140px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .tag.green {
+            background-color: #e0f3e6;
+            color: #1a9b56;
+        }
+
+        .tag.pink {
+            background-color: #fde6ed;
+            color: #d92567;
+        }
+
+        .service-card p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .main2 {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 16px 8px;
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card.selected {
+            border: 2px solid #0b8b72;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 10px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .badge.green {
+            background-color: #0b8b72;
+        }
+
+        .badge.pink {
+            background-color: #f5538e;
+        }
+
+        .service-name {
+            font-size: 13px;
+            line-height: 1.3;
+            color: #333;
+        }
+
+
+        .main2 {
+            position: absolute;
+            left: 10;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+        }
+
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 16px 8px;
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card.selected {
+            border: 2px solid #0b8b72;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 12px;
+            border-radius: 10px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .badge.green {
+            background-color: #0b8b72;
+        }
+
+        .badge.pink {
+            background-color: #f5538e;
+        }
+
+        .service-name {
+            font-size: 13px;
+            line-height: 1.3;
+            color: #333;
+        }
+
+        .service-actions {
+            display: flex;
+            position: relative;
+            margin-left: 990px;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="gov_top">
+            <div class="inner-wrap">
+                <img src="./images/KoreanFlag.png" alt="태극기" class="flag-img">
+                <div class="text">
+                    <p>이 누리집은 대한민국 공식 전자정부 누리집입니다.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <header>
+            <div class="header-body">
+                <div class="header-top">
+                    <div class="24logo">
+                        <img src="./images/정부24leftimage.png" alt="정부24 로고" style="width: 120px; height: auto;">
+                    </div>
+                    <div class="right-box">
+                        <div class="language-bar">
+                            <div class="select language">For foreigners &#8744</div>
+                            <div class="for children"></div>
+                            <a href="https://kids.gov.kr/main.ds" class="for children">어린이 &#8744 </a>
+
+                            <div class="howtologin">지원 &#8744</div>
+
+                            <div class="resize">화면크기 &#8744</div>
+                        </div>
+
+                        <div class="login-bar">
+                            <div class="search input-group">
+                                <img src="./images/search.svg">
+                                <a href="https://www.gov.kr/portal/main/nologin" class="search-btn">통합검색</a>
+
+                            </div>
+                            <div class="login input-group">
+                                <img src="./images/login.svg">
+                                <a href="https://www.gov.kr/nlogin/?Mcode=10003" class="login-btn">로그인</a>
+
+                            </div>
+                            <div class="register input-group">
+                                <img src="./images/person_add.svg">
+                                <a href="https://www.gov.kr/nlogin/usr?Mcode=10004" class="signup-btn">회원가입</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="header-bottom">
+                    <ul class="main-menu">
+                        <li class="menu-item">
+
+                            <label for="menu1">민원 서비스 &#8744</label>
+                            <ul class="sub-menu">
+                                <li><a href="#">민원 신청&middot;안내</a></li>
+                                <p> 정부24에서 직접 신청·조회·발급 가능 서비스 이용 및 정보를 확인할 수 있어요. <br>
+
+                                    행정서식 간편이름</p>
+                                <li><a href="#">사실/진위 확인</a></li>
+                                <p> 정부24에서 이용 가능한 서비스의 사실 관계 확인 및 발급한 증명서의 진위 여부를 확인할 수 있어요.</p>
+                                <li><a href="#">원스톱 서비스</a></li>
+                                <p>여러 서비스를 통합해서 한 번에 신청하거나 유사 서비스를 한 곳에서 확인할 수 있어요.</p>
+                                <li><a href="#">분야별 서비스</a></li>
+                                <p> 취업, 건강, 임신 등 12개 카테고리별로 서비스를 쉽고 빠르게 찾을 수 있어요.</p>
+                                <li><a href="#">기업/단체 서비스</a></li>
+                                <p> 정부24에서 직접 이용 가능한 모든 서비스를 확인할 수 있어요</p>
+                                <li><a href="#">돌봄시설 등 위치 찾기</a></li>
+                                <p> 영·유아/초등 돌봄 및 청소년 지원센터 등 시설의 위치를 찾을 수 있어요.</p>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item">
+                            <label for="menu2">보조금24 &#8744</label>
+                            <ul class="sub-menu">
+                                <li><a href="#">보조금24 홈</a></li>
+                                <p> 보조금24 대표 서비스, 나의 혜택 요약 정보 및 추천 서비스 등을 확인할 수 있어요.</p>
+                                <li><a href="#">나의 혜택</a></li>
+                                <p> 맞춤안내 조회 버튼만 누르면 나와 가족이 신청 가능한 서비스를 확인할 수 있어요.</p>
+                                <li><a href="#">간편 찾기</a></li>
+                                <p> 나에게 맞는 상황을 선택하면 선택한 조건에 맞는 서비스를 찾아볼 수 있어요</p>
+                                <li><a href="#">전체 혜택</a></li>
+                                <p>중앙부처, 지자체, 공공기관, 교육청에서 제공하는 1만여 개의 서비스를 확인할 수 있어요. </p>
+                                <li><a href="#">보조금24 란</a></li>
+                                <p> 서비스 소개, 이용방법, 자주 묻는 질문에 대한 답변을 통해 서비스에 대한 이해를 할 수 있어요.</p>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item">
+                            <label for="menu3">정책정보 &#8744</label>
+                            <ul class="sub-menu">
+                                <li><a href="#">분야별 정책정보</a></li>
+                                <p>국가 주요 정책뉴스, 연구보고서 등의 원문정보 및 동영상 자료를 확인할 수 있어요. </p>
+                                <li><a href="#">정부/지자체 조직도</a></li>
+                                <p> 정부 조직 구조 및 각 조직의 역할, 제공 서비스 등을 확인할 수 있어요.</p>
+                                <li><a href="#">정부/지자체 누리집</a></li>
+                                <p> 정부와 지자체에서 운영하고 있는 누리집, 모바일 웹/앱정보를 확인할 수 있어요.</p>
+                                <li><a href="#">지자체 소식</a></li>
+                                <p> 전국 시/도, 시/군/구에서 운영하는 누리집 소식을 확인할 수 있어요.</p>
+                                <li><a href="#">공모전</a></li>
+                                <p> 정부24 및 중앙부처, 지자체, 공공기관 등에서 진행하는 공모전을 확인할 수 있어요</p>
+                                <li><a href="#">공공자원공유</a></li>
+                                <p> 공공기관이 제공하는 회의실, 체육관, 주차장 등을 검색·예약할 수 있어요.</p>
+                                <li><a href="#">국고보조금 부정수급 신고</a></li>
+                                <p> 정부 각종 보조금·지원금 등을 부정한 방법으로 지급받거나 사용하는 경우에 대해 신고할 수 있어요.</p>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item">
+                            <label for="menu4">고객센터 &#8744</label>
+                            <ul class="sub-menu">
+                                <li><a href="#">공지사항</a></li>
+                                <p> 새소식, 운영점검 등 서비스 이용에 필요한 정보를 확인할 수 있어요.</p>
+                                <li><a href="#">이용안내</a></li>
+                                <p> 서비스/보조금24, 회원가입/인증서 등 정부24 이용에 관한 정보를 확인할 수 있어요.</p>
+                                <li><a href="#">자주 묻는 질문(FAQ)</a></li>
+                                <p> 가장 많이 질문 받은 내용을 FAQ 형식으로 확인할 수 있어요.</p>
+                                <li><a href="#">자료실</a></li>
+                                <p> 정부24 서비스 이용, 민원사무 처리 관련 자료를 확인할 수 있어요.</p>
+                                <li><a href="#">상담 예약</a></li>
+                                <p> 민원 신청/발급, 보조금24 이용, 회원가입/로그인 등 정부24 이용 중 기술지원에 대한 상담을 받을 수 있어요.</p>
+                                <li><a href="#">개선 의견</a></li>
+                                <p> 정부24를 이용하면서 느낀 불편사항을 말씀해주세요.</p>
+                                <li><a href="#">정부24 소개</a></li>
+                                <p> 정부24에 대한 소개를 확인할 수 있어요.</p>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <main>
+            <div class="main container">
+                <div class="main-left">
+                    <div class="main-photo">
+                        <img src="./images/정부24main_250512.png">
+                    </div>
+
+
+                    <div class="frequent-search-container">
+                        <label class="frequent-label" for="gov-search">자주찾는 검색</label>
+                        <input type="text" id="gov-search" class="gov-search-box" placeholder="찾으시는 서비스를 입력하세요" />
+                        <div class="material-icons">
+                            <img src="./images/search.svg">
+                        </div>
+
+                    </div>
+
+
+                    <div class="main2">
+                        <h2 class="section-title">자주찾는 서비스</h2>
+                        <div class="service-actions">
+                            <a href="#" class="action-link"> 자주찾는서비스 설정</a>
+                            <a href="#" class="action-link">모아보기</a>
+                        </div>
+
+
+                        <div class="service-grid">
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">토지(임야)<br>대장</p>
+
+                            </div>
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">주민등록등본<br>(초본)</p>
+                            </div>
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">자동차<br>등록원부</p>
+                            </div>
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">건축물대장</p>
+                            </div>
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">가족관계<br>증명서</p>
+                            </div>
+                            <div class="service-card">
+                                <span class="badge pink">신청</span>
+                                <p class="service-name">여권<br>재발급</p>
+                            </div>
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">지방세<br>납세증명</p>
+                            </div>
+                            <div class="service-card">
+                                <span class="badge green">발급</span>
+                                <p class="service-name">납세증명</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="main-right">
+                    <div class="user-section">
+                        <div class="login-top-image">
+                            <img src="./images/정부24로그인위image.png">
+                        </div>
+                        <div class="문장">
+                            <strong>
+                                <p class="login-text">내게 필요한 민원/정보/혜택 <br>정보를 확인하세요</p>
+                            </strong>
+
+                        </div>
+                        <div class="login-button">로그인
+                            <a href="https://www.gov.kr/nlogin/?Mcode=10003&regType=ctab" class="login-buton"></a>
+
+                        </div>
+                        <ul class="register-menu">
+                            <li><a href="https://www.gov.kr/nlogin/findUsrId" class="menu-link">아이디찾기</a></li>
+                            <li><a href="https://www.gov.kr/nlogin/findUsrPwd" class="menu-link">비밀번호찾기</a></li>
+                            <li><a href="https://www.gov.kr/nlogin/usr?Mcode=10004" class="menu-link">회원가입</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+    </div>
+
+
+</body>
+
+</html>
